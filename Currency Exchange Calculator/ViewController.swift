@@ -10,6 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var pesosAmountTextField: UITextField!
+    @IBOutlet weak var dollarAmountTextField: UITextField!
+    
+    
+    @IBAction func CalculateButton(_ sender: Any) {
+        
+        guard let dollarValue = Double(dollarAmountTextField.text!) else{
+             return
+        }
+        
+        print("\(dollarValue)")
+        
+        let pesosValue: Double = dollarValue * 18.23
+        let formatedString = String(format: "%.2f", pesosValue)
+        pesosAmountTextField.text = ("P \(formatedString)")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
